@@ -1,0 +1,125 @@
+// 1: c program to find exponent between two numbers without using exponent operator
+
+#include <stdio.h>
+
+int main() {
+    int base, exponent;
+    long long result = 1;
+    
+    printf("Enter base number: ");
+    scanf("%d", &base);
+    
+    printf("Enter exponent number: ");
+    scanf("%d", &exponent);
+    
+    while (exponent != 0) {
+        result *= base;
+        --exponent;
+    }
+    
+    printf("Result: %lld", result);
+    return 0;
+}
+
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+// 2:reverse a string 
+
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+
+
+#include <stdio.h>
+#include <string.h>
+
+void reverseString(char *str);
+
+int main() {
+    char str[100];
+    
+    printf("Enter a string: ");
+    scanf("%s", str);
+    
+    printf("Original string: %s\n", str);
+    
+    reverseString(str);
+    
+    printf("Reversed string: %s\n", str);
+    
+    return 0;
+}
+
+void reverseString(char *str) {
+    char *begin = str;
+    char *end = str + strlen(str) - 1;
+    char temp;
+    
+    while (begin < end) {
+        temp = *begin;
+        *begin = *end;
+        *end = temp;
+        
+        ++begin;
+        --end;
+    }
+}
+
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+random number generation
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main() {
+    int i, n;
+    
+    // Use the current time as the seed for the random number generator
+    srand(time(NULL));
+    
+    printf("Enter the number of random numbers to generate: ");
+    scanf("%d", &n);
+    
+    printf("Random numbers:\n");
+    for (i = 0; i < n; ++i) {
+        printf("%d\n", rand());
+    }
+    
+    return 0;
+}
+
+
+-------------------------------------------------------------------------------------------------------------------------------
+memcpy function
+-------------------------------------------------------------------------------------------------------------------------------
+
+
+#include <stdio.h>
+#include <string.h>
+#define MAX_CHAR 50
+
+int main(void) {
+	char str1[MAX_CHAR] = "Hello World!";
+	char str2[MAX_CHAR] = "Lets go to mars";
+
+	printf("Before copying...\n");
+	printf("str1: %s\n",str1);
+	printf("str2: %s\n",str2);
+
+	//copying all bytes of str2 to str1
+	memcpy(str1, str2, strlen(str2));
+
+	printf("After copying...\n");
+	printf("str1: %s\n", str1);
+	printf("str2: %s\n", str2);
+	
+	return 0;
+}
