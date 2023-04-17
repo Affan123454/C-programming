@@ -1,0 +1,125 @@
+//1 . SUM OF TWO ARRAYS
+----------------------------------------------------------------------------------------------------------------------------------------
+
+#include <stdio.h>
+
+int sumOfTwoArrays(int arr1[], int arr2[], int len1, int len2);
+
+int main() {
+    int arr1[] = {1, 2, 3};
+    int arr2[] = {4, 5, 6, 7};
+    int len1 = sizeof(arr1) / sizeof(arr1[0]);
+    int len2 = sizeof(arr2) / sizeof(arr2[0]);
+    
+    int result = sumOfTwoArrays(arr1, arr2, len1, len2);
+    
+    printf("The sum of the two arrays is: %d\n", result);
+    
+    return 0;
+}
+
+int sumOfTwoArrays(int arr1[], int arr2[], int len1, int len2) {
+    int sum = 0;
+    for (int i = 0; i < len1; i++) {
+        sum += arr1[i];
+    }
+    for (int i = 0; i < len2; i++) {
+        sum += arr2[i];
+    }
+    return sum;
+}
+
+
+----------------------------------------------------------------------------------------------------------------------------------------
+2. convert a phone number stored in int array to a char array
+----------------------------------------------------------------------------------------------------------------------------------------
+#include <stdio.h>
+#include <stdlib.h>
+
+char* createPhoneNumber(int a[], int length);
+
+int main() {
+    int a[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 0};
+    int length = sizeof(a) / sizeof(a[0]);
+    
+    char* phoneNumber = createPhoneNumber(a, length);
+    
+    printf("The phone number is: %s\n", phoneNumber);
+    
+    free(phoneNumber);
+    return 0;
+}
+
+char* createPhoneNumber(int a[], int length) {
+    char* phoneNumber = (char*) malloc((length+1) * sizeof(char));
+    
+    for (int i = 0; i < length; i++) {
+        sprintf(&phoneNumber[i], "%d", a[i]);
+    }
+    phoneNumber[length] = '\0';
+    
+    return phoneNumber;
+}
+
+
+----------------------------------------------------------------------------------------------------------------------------------------
+
+3. Smallest element of an array
+
+----------------------------------------------------------------------------------------------------------------------------------------
+
+
+#include <stdio.h>
+
+int findSmallest(int arr[], int length);
+
+int main() {
+    int arr[] = {3, 7, -1, 5, 0, 2};
+    int length = sizeof(arr) / sizeof(arr[0]);
+    
+    int smallest = findSmallest(arr, length);
+    
+    printf("The smallest value in the array is %d\n", smallest);
+    
+    return 0;
+}
+
+int findSmallest(int arr[], int length) {
+    int smallest = arr[0]; // assume the first element is the smallest
+    
+    for (int i = 1; i < length; i++) {
+        if (arr[i] < smallest) {
+            smallest = arr[i];
+        }
+    }
+    
+    return smallest;
+}
+
+
+----------------------------------------------------------------------------------------------------------------------------------------
+
+4.little big endian system
+
+----------------------------------------------------------------------------------------------------------------------------------------
+//WAP to find the whether the machine is big endian or little endian in c
+
+#include <stdio.h>
+int main ()
+{
+  unsigned int x = 0x76543210;
+  char *c = (char*) &x;
+ 
+  printf ("*c is: 0x%x\n", *c);
+  if (*c == 0x10)
+  {
+    printf ("Little endian. \n");
+  }
+  else
+  {
+     printf ("Big endian. \n");
+  }
+ 
+  return 0;
+  }
+
