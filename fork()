@@ -1,0 +1,18 @@
+#include<unistd.h>
+#include <stdio.h>
+
+int main(){
+  int id = fork();
+
+  if(id==0){
+    printf("Hello this is a child process\n");
+  }
+  else if (id> 0) {
+    printf("you better remember that i created process , and im called parent process\n");
+  }
+  else{
+    perror("unable to create process");
+  }
+}
+
+--------------------------------------------------------------------------------------------------
